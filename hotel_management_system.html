@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Registration and Profile</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+
+    <form id="registrationContainer">
+        <h2>User Registration</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="registerUser()">Register</button>
+    </form>
+
+    <form id="profileContainer" style="display: none;">
+        <h2>User Profile</h2>
+        <p><strong>Username:</strong> <span id="viewUsername"></span></p>
+        <p><strong>Email:</strong> <span id="viewEmail"></span></p>
+        <button type="button" onclick="editProfile()">Edit Profile</button>
+    </form>
+
+    <script>
+        function registerUser() {
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+
+            document.getElementById('registrationContainer').style.display = 'none';
+            document.getElementById('profileContainer').style.display = 'block';
+
+            document.getElementById('viewUsername').innerText = username;
+            document.getElementById('viewEmail').innerText = email;
+        }
+
+        function editProfile() {
+            document.getElementById('registrationContainer').style.display = 'block';
+            document.getElementById('profileContainer').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
